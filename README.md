@@ -28,6 +28,12 @@ This project fulfills the following requirements:
 * **Random Page**: Clicking “Random Page” in the sidebar takes user to a random encyclopedia entry.
 * **Markdown to HTML Conversion**: On each entry’s page, any Markdown content in the entry file is converted to HTML before being displayed to the user. Referring to [`python-markdown2`](https://github.com/trentm/python-markdown2) package to perform this conversion, installable via `pip3 install markdown2`.
 
+## Setup
+Requires Python3 and the package installer for Python (pip) to run:
+
+* Install requirements (Django4 and Markdown2): `pip install -r requirements.txt`
+* Refer to the project folder and run the app locally: `python manage.py runserver`
+
 ## Topics
 Built with [`Python3.6.4`](https://www.python.org/downloads/), [`django4.0`](https://www.djangoproject.com/) and Markdown.
 
