@@ -42,9 +42,5 @@ def search(query):
     Searches for a given query in the encyclopedia.
     """
     _, filenames = default_storage.listdir("entries")
-    entries = []
-    for filename in filenames:
-        if filename.endswith(".md") and query.lower() in filename.lower():
-            entries.append(filename[:-3])
-    return sorted(entries)
-
+    return list(sorted(re.sub(r"\.md$", "", filename)
+                for filename in filenames if filename.endswith(".md") and query.lower() in filename.lower()))
