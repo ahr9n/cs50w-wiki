@@ -39,16 +39,17 @@ def create(request):
 
 
 def edit(request, title):
-    content = util.get_entry(title)
+    content = util.get_entry(title.strip())
     if content is None:
-        return render(request, "encyclopedia/edit.html", {"error": "Page not found!"})
-    if request.method == "POST":
-        content = request.POST.get("content").strip()
+        return render(request, "encyclopedia/edit.html", {'error': "Page Not Found"})
+    if request.method == "GET":
+        content = request.GET.get("content").strip()
         if content == "":
-            return render(request, "encyclopedia/edit.html", {"error": "Content is required!"})
+            return render(request, "encyclopedia/edit.html", {"message": "Can't save with empty field.", "title": title, "content": content})
         util.save_entry(title, content)
         return redirect("entry", title=title)
-    return render(request, "encyclopedia/edit.html", {"title": title, "content": content})
+    util.save_entry(title, content)
+    return render(request, "encyclopedia/edit.html", {'content': content, 'title': title})
 
 
 def random(request):
