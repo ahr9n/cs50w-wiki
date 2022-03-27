@@ -8,7 +8,9 @@
     <h1>Related Pages: </h1>
     <ul>
         {% for entry in entries %}
-            <a href="{% url 'entry' entry %}"><li>{{entry}}</li></a>
+            <a href="{% url 'entry' entry %}">
+                <li>{{ entry }}</li>
+            </a>
         {% empty %}
             <li>No matching results!</li>
         {% endfor %}

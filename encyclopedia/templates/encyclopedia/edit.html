@@ -7,7 +7,7 @@
 {% block body %}
     <h1>Edit Page: {{ title }}</h1>
 
-    <div class="container">
+    <div>
         {% if message %}
             <div class="alert alert-danger" role="alert">{{ message }}</div>
         {% endif %}
@@ -17,7 +17,7 @@
             <div class="form">
                 <div>
                     <label for="content">Content</label>
-                    <textarea class="form-control" id="content" name="content"
+                    <textarea style="height: 700px; width: 800px;" class="form-control" id="content" name="content"
                               placeholder="Write page content in markdown">
                         {% if content %}{{ content }}{% endif %}</textarea>
                 </div>
