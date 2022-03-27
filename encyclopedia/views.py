@@ -7,10 +7,12 @@ from . import util
 
 
 def index(request):
+    """ Home Page, displays all available entries """
     return render(request, "encyclopedia/index.html", {"entries": util.list_entries()})
 
 
 def entry(request, title):
+    """ Displays the requested entry """
     content = util.get_entry(title.strip())
     if content is None:
         content = "<h1>Error: Page Not Found</h1>"
@@ -19,6 +21,7 @@ def entry(request, title):
 
 
 def search(request):
+    """ Loads requested title page if it exists, else displays search results """
     q = request.POST.get('q').strip()
     if q in util.list_entries():
         return redirect("entry", title=q)
@@ -26,6 +29,7 @@ def search(request):
 
 
 def create(request):
+    """ Lets users create a new page on the wiki """
     if request.method == "POST":
         title = request.POST.get("title").strip()
         content = request.POST.get("content").strip()
@@ -39,19 +43,21 @@ def create(request):
 
 
 def edit(request, title):
+    """ Lets users edit an existing page on the wiki """
     content = util.get_entry(title.strip())
     if content is None:
         return render(request, "encyclopedia/edit.html", {'error': "Page Not Found"})
     if request.method == "GET":
         content = request.GET.get("content").strip()
         if content == "":
-            return render(request, "encyclopedia/edit.html", {"message": "Can't save with empty field.", "title": title, "content": content})
+            return render(request, "encyclopedia/edit.html",
+                          {"message": "Can't save with empty field.", "title": title, "content": content})
         util.save_entry(title, content)
         return redirect("entry", title=title)
-    util.save_entry(title, content)
     return render(request, "encyclopedia/edit.html", {'content': content, 'title': title})
 
 
 def random(request):
+    """ Loads a random page from the wiki """
     entries = util.list_entries()
     return redirect("entry", title=choice(entries))
