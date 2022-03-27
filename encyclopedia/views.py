@@ -19,7 +19,7 @@ def entry(request, title):
 
 
 def search(request):
-    q = request.GET.get('q').strip()
+    q = request.POST.get('q').strip()
     if q in util.list_entries():
         return redirect("entry", title=q)
     return render(request, "encyclopedia/search.html", {"entries": util.search(q), "q": q})
@@ -54,4 +54,3 @@ def edit(request, title):
 def random(request):
     entries = util.list_entries()
     return redirect("entry", title=choice(entries))
-
