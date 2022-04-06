@@ -40,7 +40,7 @@ Requires Python3 and the package installer for Python (pip) to run:
 * Visit the site: `http://localhost:8000` and enjoy!
 
 ## Topics
-Built with [`Python3.6.4`](https://www.python.org/downloads/), [`django4.0`](https://www.djangoproject.com/) and Markdown.
+Built with [`Python`](https://www.python.org/downloads/), [`Django`](https://www.djangoproject.com/), [`Markdown`](https://pypi.org/project/Markdown/) and HTML/CSS.
 
 ## Future Work
 Some challenges I would make in my free-time:
