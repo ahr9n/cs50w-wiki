@@ -1,3 +1,7 @@
+<div align="center">
+ <img style="width: 35%;" src="https://user-images.githubusercontent.com/52632898/161971512-2507472b-367f-4695-ba18-76f2f73bd0d4.png" alt="Wikipedia, at last free knowledge for all!">
+</div>
+
 # Wiki
 Project 1 for CS50’s Web Programming with Python and JavaScript.
 
@@ -32,12 +36,13 @@ This project fulfills the following requirements:
 Requires Python3 and the package installer for Python (pip) to run:
 
 * Install requirements (Django4 and Markdown2): `pip install -r requirements.txt`
-* Refer to the project folder and run the app locally: `python manage.py runserver`
+* After cloning the repository, refer to the project folder and run the app locally: `python3 manage.py runserver`
+* Visit the site: `http://localhost:8000` and enjoy!
 
 ## Topics
 Built with [`Python3.6.4`](https://www.python.org/downloads/), [`django4.0`](https://www.djangoproject.com/) and Markdown.
 
 ## Future Work
-Some challenge I would make in my free-time:
+Some challenges I would make in my free-time:
 * Try implementing the Markdown to HTML conversion without using any external libraries, supporting headings, boldface text, unordered lists, links, and paragraphs.
   * Notice that using regular expressions in Python maybe helpful.
